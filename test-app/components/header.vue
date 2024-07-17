@@ -1,27 +1,86 @@
 <template>
-    <div class="bg-black">
+    <div class="bg-black fixed w-full z-10">
         <nav>
-            <ul class="md:hidden p-4 text-white md:min-h-fit">
+            <ul class="md:hidden p-4 pl-8 text-white md:min-h-fit">
                 <li @click="showMenu = !showMenu">
                     <Icon name="simple-line-icons:menu" color="white" />
                 </li>
             </ul>
-            <ul class="flex  md:flex-row flex-col md:space-x-12 space-x-0 p-4 text-white justify-end bg-black min-h-[25vh] gap-3 md:min-h-fit " v-if="showMenu">
-                <li class="hover:text-gray-500"><NuxtLink to="/">Home</NuxtLink></li>
-                <li class="hover:text-gray-500"><NuxtLink to="/recepies">Recepies</NuxtLink></li>
-                <li class="hover:text-gray-500"><NuxtLink to="/favorites">Favorites</NuxtLink></li>
-                <li class="pr-10 hover:text-gray-500"><NuxtLink to="/about-us">About us</NuxtLink></li>
+            <transition name="bounce">
+            <ul class="flex md:flex-row flex-col md:space-x-12 pl-8 pb-4 md:pt-4 text-gray-300 bg-black min-h-[20vh] gap-3 md:min-h-fit md:text-center" v-if="showMenu || isMediumOrLarger">
+                <div class="md:flex items-center mr-auto space-x-3 hidden">
+                  <img src="/public/images/logo_bowl.png" alt="TasteNest Logo"  class="md:h-7">
+                  <img src="/public/images/ime.png" alt="TasteNest Name"  class="md:h-5">
+                </div>
+                <li class="hover:text-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200"><NuxtLink to="/">Home</NuxtLink></li>
+                <li class="hover:text-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200"><NuxtLink to="/recepies">Recepies</NuxtLink></li>
+                <li class="hover:text-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200"><NuxtLink to="/favorites">Favorites</NuxtLink></li>
+                <li class="pr-10 hover:text-white transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200"><NuxtLink to="/about-us">About us</NuxtLink></li>
             </ul>
+          </transition>
         </nav>
     </div>
 </template>
 
 <script>
-  export default {
+export default {
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      isMediumOrLarger: false
     };
+  },
+  mounted() {
+    this.checkScreenSize();
+    window.addEventListener('resize', this.checkScreenSize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.checkScreenSize);
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    checkScreenSize() {
+      this.isMediumOrLarger = window.innerWidth >= 768;
+    }
   }
 };
 </script>
+
+<style>
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.bounce-enter-active {
+  animation: bounceIn 0.4s;
+}
+.bounce-leave-active {
+  animation: bounceOut 0.4s;
+}
+</style>
