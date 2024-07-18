@@ -5,3 +5,9 @@
 html {
     scroll-behavior: smooth;
 }
+
+@layer utilities {
+    .bg-customBackground {
+      background-color: #FFEEA9;
+    }
+  }

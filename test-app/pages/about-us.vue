@@ -1,9 +1,10 @@
 <template>
-    <div class="bg-black min-h-screen">
-        <div class="bg-white py-20">
-            <div class="md:max-w-7xl mx-auto px-5 md:px-0">
-                <h1 class="text-4xl font-bold text-center mb-8">About Us</h1>
-                <div class="text-lg text-gray-700">
+    <div class="bg-zinc-900 min-h-screen flex flex:row items-center">
+        <div class="border border-amber-500/50 border-1 py-20 p-10 md:p-10 md:m-40 text-justify rounded-2xl">
+            <div class="md:max-w-2xl px-5 md:px-0">
+                <h1 class="text-4xl text-amber-500 font-bold text-center mb-2">About Us</h1>
+                <hr class="my-1 border-amber-500/50 mb-8">
+                <div class="text-lg text-white">
                     <p class="mb-6">
                     Welcome to TasteNest! We are passionate food enthusiasts who believe that cooking is an art that brings people together. Our mission is to inspire and empower home cooks with delicious recipes, culinary tips, and a love for good food.
                     </p>
@@ -19,11 +20,14 @@
                     <p class="mb-6">
                     We love to hear from our community! If you have any questions, suggestions, or just want to share your cooking success, feel free to reach out to us. Thank you for being a part of the TasteNest family. Let's create delicious memories together!
                     </p>
-                    <p class="text-center font-semibold">
+                    <p class="text-center font-semibold text-amber-500">
                     Happy Cooking!
                     </p>
                 </div>
             </div>
+        </div>
+        <div>
+            <img src="/public/images/ilustracija.png" alt="About-us ilustracija"  class="hidden md:flex md:max-w-2xl">
         </div>
     </div>
 </template>
