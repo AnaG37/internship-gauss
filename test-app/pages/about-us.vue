@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-zinc-900 min-h-screen flex flex:row items-center">
-        <div class="border border-amber-500/50 border-1 py-20 p-10 md:p-10 md:m-40 text-justify rounded-2xl">
+    <div class="bg-zinc-900 min-h-screen flex flex:row items-center justify-center">
+        <div class="border border-amber-500/50 border-1 py-20 p-10 md:p-10 md:my-20 md:mx-20 text-justify rounded-2xl">
             <div class="md:max-w-2xl px-5 md:px-0">
                 <h1 class="text-4xl text-amber-500 font-bold text-center mb-2">About Us</h1>
                 <hr class="my-1 border-amber-500/50 mb-8">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div>
-            <img src="/public/images/ilustracija.png" alt="About-us ilustracija"  class="hidden md:flex md:max-w-2xl">
+            <img src="/public/images/ilustracija.png" alt="About-us ilustracija"  class="hidden md:flex md:max-w-2xl md:pr-10">
         </div>
     </div>
 </template>
