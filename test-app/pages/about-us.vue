@@ -27,7 +27,7 @@
             </div>
         </div>
         <div>
-            <img src="/public/images/ilustracija.png" alt="About-us ilustracija"  class="hidden md:flex md:max-w-2xl md:pr-10">
+            <img src="/public/images/ilustracija.png" alt="About-us ilustracija"  class="hidden md:flex md:max-w-2xl md:pr-10 sm:hidden">
         </div>
     </div>
 </template>

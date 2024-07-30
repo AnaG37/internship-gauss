@@ -9,8 +9,8 @@
           <img src="/public/images/logo_bowl.png" alt="TasteNest Logo" class="h-20 mb-4 md:mb-0">
         </div>
         <div class="md:text-left md:w-1/2 md:pl-10">
-          <p>Email: kontakt@tastenest.com</p>
-          <p>Phone: +1234567890</p>
+          <p>Email: <a href="mailto:kontakt@tastenest.com" class="text-blue-300">kontakt@tastenest.com</a></p>
+          <p>Phone: <a href="tel:+1234567890" class="text-blue-300">+1234567890</a></p>
           <p>Designed by <a href="https://github.com/AnaG37" target="_blank" rel="noopener noreferrer" class="text-blue-300">Ana</a></p>
         </div>
       </div>
