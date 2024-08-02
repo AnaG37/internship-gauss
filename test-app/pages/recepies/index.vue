@@ -7,6 +7,11 @@
                 placeholder="Search for meal"
                 class="px-4 py-2 rounded-md bg-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
+            <button
+                @click="performSearch"
+                class="ml-2 px-4 py-2 bg-yellow-400 rounded-md hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 flex items-center justify-center">
+                <Icon name="la:search" class="w-5 h-5" />
+            </button>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-white py-7 px-10">
             <div v-for="c in categories" class="relative hover:text-yellow-400 hover:scale-105 duration-300">
@@ -38,5 +43,12 @@ const categories = data_categories.value.categories || []
 
 const { data : data_areas } = await useFetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list")
 const areas = data_areas.value.meals || []
-console.log(data_areas)
+
+const searchQuery = ref('')
+const router = useRouter()
+const performSearch = () => {
+  if (searchQuery.value) {
+    router.push(`/recepies/search/${searchQuery.value}`)
+  }
+}
 </script>

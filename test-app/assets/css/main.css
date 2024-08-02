@@ -10,4 +10,7 @@ html {
     .bg-customBackground {
       background-color: #FFEEA9;
     }
+    .border-customYellow {
+      border-color: #ffe001;
+    }
   }
