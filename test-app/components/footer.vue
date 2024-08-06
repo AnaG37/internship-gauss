@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-gray-800 text-white text-center pb-7">
+    <footer class="bg-zinc-800 text-white text-center pb-7">
         <div class="text-2xl pb-7">
             <a href="#" @click="scrollTop"><Icon name="ri:arrow-up-wide-fill" class="scale-150" style="color: #000;"/></a>
         </div>
