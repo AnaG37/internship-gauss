@@ -11,15 +11,11 @@ const router = useRouter();
 const meals = ref([]);
 const categoryName = ref(route.params.category_name);
 
-onMounted (async () =>
-{
-    const { data } = await useFetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName.value}`)
-    meals.value = data.value?.meals || []
+const { data } = await useFetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName.value}`)
+meals.value = data.value?.meals || []
 
-    if (meals.value.length === 0) {
-      router.push('/errors/category-name-not-found');
-      return; 
-    }
+if (meals.value.length === 0) {
+  router.push('/errors/category-name-not-found');
 }
-)
+
 </script>

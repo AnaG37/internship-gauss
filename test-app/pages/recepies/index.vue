@@ -6,6 +6,7 @@
                 v-model="searchQuery"
                 placeholder="Search for meal"
                 class="px-4 py-2 rounded-md bg-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                @keyup.enter="performSearch"
             />
             <button
                 @click="performSearch"

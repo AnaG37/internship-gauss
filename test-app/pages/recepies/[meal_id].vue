@@ -33,35 +33,33 @@
         </div>
       </div>
     </div>
-  </template>
+</template>
   
 
 
-  <script setup>
-  import { ref, onMounted } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
   
-  const route = useRoute();
-  const router = useRouter();
-  const meal_id = ref(route.params.meal_id);
-  const meals = ref([]);
-  var filteredIngredients = [];
+const route = useRoute();
+const router = useRouter();
+const meal_id = ref(route.params.meal_id);
+const meals = ref([]);
+var filteredIngredients = [];
   
-  onMounted(async () => {
-    const { data } = await useFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal_id.value}`);
-    meals.value = data.value?.meals || [];
+const { data } = await useFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal_id.value}`);
+meals.value = data.value?.meals || [];
   
-    if (meals.value.length === 0) {
-      router.push('/errors/meal-id-not-found');
-      return; 
-    }
-
-    const ingredients = [];
-    for (let i = 1; i <= 20; i++) {
-      const strIngredient = "strIngredient" + i;
-      ingredients.push(meals.value[0][strIngredient]);
-    }
-    filteredIngredients = ingredients.filter(ingredient => ingredient !== "");
-  });
-  </script>
+if (meals.value.length === 0) {
+  router.push('/errors/meal-id-not-found');
+}
+else{
+  const ingredients = [];
+  for (let i = 1; i <= 20; i++) {
+    const strIngredient = "strIngredient" + i;
+    ingredients.push(meals.value[0][strIngredient]);
+  }
+  filteredIngredients = ingredients.filter(ingredient => ingredient !== "");
+}
+</script>
   
