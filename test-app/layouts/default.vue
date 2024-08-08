@@ -4,9 +4,11 @@ import Footer from '~/components/footer.vue';
 </script>
 
 <template>
-    <div>
-        <Header/>
-        <NuxtPage/>
-        <Footer/>
+    <div class="min-h-screen flex flex-col bg-zinc-900 text-white">
+      <Header />
+      <main class="flex-grow">
+        <NuxtPage />
+      </main>
+      <Footer />
     </div>
 </template>

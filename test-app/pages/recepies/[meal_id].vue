@@ -1,7 +1,17 @@
 <template>
     <div v-if="meals.length != 0" class="bg-zinc-900 min-h-screen py-40 md:py-10 px-10 text-white flex flex-col sm:flex-col md:flex-row justify-center md:gap-40">
       <div class="w-full md:w-1/2 md:pr-10 md:pt-20">
-        <div class="text-3xl md:text-5xl md:text-3xl font-bold uppercase">{{ meals[0].strMeal }}</div>
+        <div class="text-3xl md:text-5xl font-bold uppercase flex items-center">
+          {{ meals[0].strMeal }}
+          <Icon name="ph:heart-duotone" 
+                :class="{
+                  'pl-20 w-9 h-9 hover:scale-110 transition-colors duration-300 cursor-pointer': true,
+                  'text-red-500': isClicked,
+                  'text-gray-500': !isClicked
+                }"
+                @click="toggleClick"
+                />
+        </div>
         <hr class="my-2 border-customYellow">
         <div class="mt-4">
           <span class="font-bold italic">CATEGORY: </span> {{ meals[0].strCategory }}
@@ -40,12 +50,15 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-  
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
+
 const route = useRoute();
 const router = useRouter();
 const meal_id = ref(route.params.meal_id);
 const meals = ref([]);
 var filteredIngredients = [];
+const isClicked = ref(false);
   
 const { data } = await useFetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal_id.value}`);
 meals.value = data.value?.meals || [];
@@ -60,6 +73,28 @@ else{
     ingredients.push(meals.value[0][strIngredient]);
   }
   filteredIngredients = ingredients.filter(ingredient => ingredient !== "");
+}
+
+onMounted(() => {
+  if (localStorage.getItem(meal_id.value) === 'true') {
+    isClicked.value = true;
+  }
+});
+
+function toggleClick() {
+  isClicked.value = !isClicked.value;
+  if (isClicked.value) {
+    localStorage.setItem(meal_id.value, 'true');
+    toast.success('Added to favorites!',
+      {autoClose: 2000,
+        position: 'bottom-right',
+        transition: 'bounce',
+      }
+    )
+  }
+  else{
+    localStorage.removeItem(meal_id.value)
+  }
 }
 </script>
   
