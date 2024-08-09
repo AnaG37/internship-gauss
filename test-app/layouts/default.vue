@@ -6,7 +6,7 @@ import Footer from '~/components/footer.vue';
 <template>
     <div class="min-h-screen flex flex-col bg-zinc-900 text-white">
       <Header />
-      <main class="flex-grow">
+      <main class="flex-grow min-h-screen">
         <NuxtPage />
       </main>
       <Footer />

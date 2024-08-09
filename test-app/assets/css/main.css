@@ -13,4 +13,7 @@ html {
     .border-customYellow {
       border-color: #ffe001;
     }
-  }
+    .text-customYellow {
+      color: #ffe001;
+    }
+}
