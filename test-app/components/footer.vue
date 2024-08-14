@@ -19,7 +19,7 @@
         <p>&copy; 2024 TasteNest</p>
       </div>
     </footer>
-  </template>
+</template>
 
 <script>
 export default {
