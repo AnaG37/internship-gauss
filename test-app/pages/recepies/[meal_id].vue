@@ -1,6 +1,6 @@
 <template>
     <div v-if="meals.length != 0" class="bg-zinc-900 min-h-screen py-40 md:py-10 px-10 text-white flex flex-col sm:flex-col md:flex-row justify-center md:gap-40">
-      <div class="w-full md:w-1/2 md:pr-10 md:pt-20">
+      <div class="w-full md:w-2/3 md:pr-10 md:pt-20">
         <div class="text-3xl md:text-5xl font-bold uppercase flex items-center ">
           {{ meals[0].strMeal }}
           <Icon name="ph:heart-duotone" 
@@ -48,8 +48,8 @@
       </div>
       <div class="relative w-full md:w-1/2 flex justify-center items-center min-h-screen">
         <img src="/public/images/brush_stroke.png" alt="Brush stroke" class="absolute h-full w-96 md:top-10 md:scale-100 scale-75">
-        <div class="md:top-36 md:scale-100 scale-75 aspect-w-1 aspect-h-1">
-          <img :src="meals[0].strMealThumb" class="relative h-96 w-96 rounded-full mt-20">
+        <div class="absolute md:top-36 md:scale-100 scale-75 aspect-w-1 aspect-h-1">
+          <img :src="meals[0].strMealThumb" class="md:h-96 md:w-96 rounded-full mt-20">
         </div>
       </div>
     </div>

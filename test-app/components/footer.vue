@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="pt-6">
-        <hr class="my-2 border-gray-600">
+        <hr class="my-2 border-gray-600 mx-10">
         <p>&copy; 2024 TasteNest</p>
       </div>
     </footer>
